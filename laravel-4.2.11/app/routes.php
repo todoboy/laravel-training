@@ -18,6 +18,8 @@ Route::get('/', function()
 
 // ˆÈ‰º‚ª’Ç‰Á€–Ú
 
+// šŒy‚¢—ûK
+
 Route::get('another', function(){
   return 'This is another way to go.';
 });
@@ -30,3 +32,13 @@ Route::get('myview', function(){
 */
 
 Route::get('myview', 'MyController@show');
+
+
+//šŠÈˆÕŒf¦”Â‚Ìì¬i“ü—Í‚Æ“o˜^‚Ì‚İj
+
+// “Šeform‚ğ•\¦‚·‚é
+Route::get('posts/create', 'PostController@create');
+
+// ÀÛ‚ÉDB‚Éƒf[ƒ^‚ğ“ü‚ê‚é
+Route::post('posts', 'PostController@store');
+
