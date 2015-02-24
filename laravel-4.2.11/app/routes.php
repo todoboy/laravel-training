@@ -34,11 +34,14 @@ Route::get('myview', function(){
 Route::get('myview', 'MyController@show');
 
 
-//★簡易掲示板の作成（入力と登録のみ）
+//★簡易掲示板の作成
 
 // 投稿formを表示する
 Route::get('posts/create', 'PostController@create');
 
 // 実際にDBにデータを入れる
 Route::post('posts', 'PostController@store');
+
+// すべてのPostを表示する
+Route::get('posts', 'PostController@index');
 

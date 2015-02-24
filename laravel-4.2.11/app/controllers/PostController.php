@@ -11,4 +11,8 @@ class PostController extends BaseController{
         ]);
         return 'Successfully done!';
     }
+    function index(){
+        $posts = DB::table('posts')->get();
+        return View::make('posts.index')->with('posts', $posts);
+    }    
 }
