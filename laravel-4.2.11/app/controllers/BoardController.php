@@ -1,17 +1,20 @@
 <?php
 
-class PostController extends BaseController{
+class BoardController extends BaseController{
+/*
     function create(){
         return View::make('posts.create');
     }
+*/
     function store(){
-        Post::create(Input::all());
-        return Redirect::to('posts');
+        Board::create(Input::all());
+        return Redirect::to('boards');
     }
     function index(){
-        $posts = Post::all();
-        return View::make('posts.index')->with('posts', $posts);
+        $posts = Board::all();
+        return View::make('boards.index')->with('posts', $posts);
     }
+/*
     function show($postid){
         $post = Post::find($postid);
         return View::make('posts.show')->with('post', $post);
@@ -30,4 +33,5 @@ class PostController extends BaseController{
         Post::find($postid)->delete();
         return Redirect::route('posts.index');
     }
+*/
 }

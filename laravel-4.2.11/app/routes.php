@@ -11,6 +11,21 @@
 |
 */
 
+
+
+// ★ Restfull 一発OK、簡易掲示板（コピペ）
+
+Route::get('/', function()
+{
+    return View::make('hello');
+});
+
+Route::resource('posts', 'PostController');
+
+
+
+/*
+
 Route::get('/', function()
 {
 	return View::make('hello');
@@ -24,17 +39,17 @@ Route::get('another', function(){
   return 'This is another way to go.';
 });
 
-/*
+
 Route::get('myview', function(){
     $name = 'Dick Choi';
     return View::make('myFirstView')->with('name',$name);
 });
-*/
+
 
 Route::get('myview', 'MyController@show');
 
 
-//★簡易掲示板の作成
+//★簡易掲示板の作成(コピペ)
 
 // 投稿formを表示する
 Route::get('posts/create', 'PostController@create');
@@ -45,3 +60,17 @@ Route::post('posts', 'PostController@store');
 // すべてのPostを表示する
 Route::get('posts', 'PostController@index');
 
+// 一つのPostを表示する。
+Route::get('posts/{postid}','PostController@show');
+
+*/
+
+
+
+// //★簡易掲示板の作成(自主制作)
+
+// 投稿・削除・編集formと投稿の表示
+Route::get('boards', 'BoardController@index');
+
+// 投稿
+Route::post('boards', 'BoardController@store');
