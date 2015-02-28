@@ -74,3 +74,12 @@ Route::get('boards', 'BoardController@index');
 
 // “Še
 Route::post('boards', 'BoardController@store');
+
+// íœ
+Route::post('boards/delete', 'BoardController@destroy');
+
+// •ÒW
+Route::post('boards/edit', 'BoardController@edit');
+
+// XV
+Route::post('boards/update', 'BoardController@update');
