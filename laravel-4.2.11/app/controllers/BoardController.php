@@ -1,11 +1,7 @@
 <?php
 
 class BoardController extends BaseController{
-/*
-    function create(){
-        return View::make('posts.create');
-    }
-*/
+
     function store(){
         Board::create(Input::all());
         return Redirect::to('boards');
@@ -14,24 +10,19 @@ class BoardController extends BaseController{
         $posts = Board::all();
         return View::make('boards.index')->with('posts', $posts);
     }
-/*
-    function show($postid){
-        $post = Post::find($postid);
-        return View::make('posts.show')->with('post', $post);
+    function destroy(){
+        $delete_id = Board::find(Input::get('article_number'))->delete();
+        return Redirect::to('boards');
     }
-    function edit($postid){
-        $post = Post::find($postid);
-        return View::make('posts.edit')->with('post', $post);
+    function edit(){
+        $post = Board::find(Input::get('article_number'));
+        return View::make('boards.edit')->with('post', $post);
     }
-    function update($postid){
-        $post = Post::find($postid);
+    
+    function update(){
+        $post = Board::find(Input::get('edit_number'));
         $post->fill(Input::all());
         $post->save();
-        return Redirect::route('posts.show',[$postid]);
+        return Redirect::to('boards');
     }
-    function destroy($postid){
-        Post::find($postid)->delete();
-        return Redirect::route('posts.index');
-    }
-*/
 }
